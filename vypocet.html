@@ -1,0 +1,38 @@
+<html lang="cs">
+<head>
+    <title>Výpočet koncentrací</title>
+    <script type="text/javascript">
+        function round(num) {
+            return Math.round(num * 100) / 100
+        }
+
+        function vypocet() {
+            const formData = new FormData(document.getElementById('form'));
+
+            const objem = formData.get('objem')
+            const koncentrace1 = formData.get('koncentrace1')
+            const koncentrace2 = formData.get('koncentrace2')
+            const koncentrace = formData.get('koncentrace')
+
+            const objem1 = objem * (koncentrace - koncentrace1) / (koncentrace2 - koncentrace1)
+            const objem2 = objem * (koncentrace - koncentrace2) / (koncentrace1 - koncentrace2)
+
+            document.getElementById('vysledek').value = `${round(objem1)} ml roztoku ${koncentrace1}% + ${round(objem2)} ml roztoku ${koncentrace2}%`
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+<form id="form">
+    <div><label for="koncentrace1">Koncentrace prvniho roztoku:</label> <input id="koncentrace1" name="koncentrace1"/>%</div>
+    <div><label for="koncentrace2">Koncentrace druheho roztoku:</label> <input id="koncentrace2" name="koncentrace2"/>%</div>
+    <div><label for="koncentrace">Pozadovana koncentrace:</label> <input id="koncentrace" name="koncentrace"/>%</div>
+    <div><label for="objem">Pozadovany objem:</label> <input id="objem" name="objem"/>ml</div>
+    <div><label for="vysledek">Vysledek:</label> <output id="vysledek"></output></div>
+    <div>
+        <button type="button" onclick="vypocet()">Vypocti</button>
+    </div>
+</form>
+</body>
+</html>
