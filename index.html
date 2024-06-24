@@ -9,13 +9,13 @@
         function vypocet() {
             const formData = new FormData(document.getElementById('form'));
 
-            const objem = formData.get('objem')
-            const koncentrace1 = formData.get('koncentrace1')
-            const koncentrace2 = formData.get('koncentrace2')
-            const koncentrace = formData.get('koncentrace')
+            const objem = formData.get('objem').replace(',', '.')
+            const koncentrace1 = formData.get('koncentrace1').replace(',', '.')
+            const koncentrace2 = formData.get('koncentrace2').replace(',', '.')
+            const koncentrace = formData.get('koncentrace').replace(',', '.')
 
-            const objem1 = objem * (koncentrace - koncentrace1) / (koncentrace2 - koncentrace1)
-            const objem2 = objem * (koncentrace - koncentrace2) / (koncentrace1 - koncentrace2)
+            const objem1 = objem * (koncentrace - koncentrace2) / (koncentrace1 - koncentrace2)
+            const objem2 = objem * (koncentrace - koncentrace1) / (koncentrace2 - koncentrace1)
 
             document.getElementById('vysledek').value = `${round(objem1)} ml roztoku ${koncentrace1}% + ${round(objem2)} ml roztoku ${koncentrace2}%`
 
