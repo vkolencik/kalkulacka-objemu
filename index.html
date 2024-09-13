@@ -1,7 +1,7 @@
-<html lang="cs" class="bg-gray-100">
+<html lang="cs">
 <head>
     <title>Výpočet koncentrací</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script type="text/javascript">
         function round(num) {
             return Math.round(num * 100) / 100
@@ -24,33 +24,49 @@
         }
     </script>
 </head>
-<body class="flex items-center justify-center min-h-screen">
-<form id="form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md">
-    <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="koncentrace1">Koncentrace prvniho roztoku:</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="koncentrace1" name="koncentrace1" type="text" placeholder="Koncentrace 1"/>
+<body>
+<section class="section">
+    <div class="container">
+        <form id="form">
+            <div class="field">
+                <label class="label" for="koncentrace1">Koncentrace prvniho roztoku:</label>
+                <div class="control">
+                    <input class="input" id="koncentrace1" name="koncentrace1" type="text" placeholder="Koncentrace 1"/>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="koncentrace2">Koncentrace druheho roztoku:</label>
+                <div class="control">
+                    <input class="input" id="koncentrace2" name="koncentrace2" type="text" placeholder="Koncentrace 2"/>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="koncentrace">Pozadovana koncentrace:</label>
+                <div class="control">
+                    <input class="input" id="koncentrace" name="koncentrace" type="text" placeholder="Pozadovana koncentrace"/>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="objem">Pozadovany objem:</label>
+                <div class="control">
+                    <input class="input" id="objem" name="objem" type="text" placeholder="Objem"/>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="vysledek">Vysledek:</label>
+                <div class="control">
+                    <output id="vysledek" class="input"></output>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary" type="button" onclick="vypocet()">
+                        Vypocti
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="koncentrace2">Koncentrace druheho roztoku:</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="koncentrace2" name="koncentrace2" type="text" placeholder="Koncentrace 2"/>
-    </div>
-    <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="koncentrace">Pozadovana koncentrace:</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="koncentrace" name="koncentrace" type="text" placeholder="Pozadovana koncentrace"/>
-    </div>
-    <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="objem">Pozadovany objem:</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="objem" name="objem" type="text" placeholder="Objem"/>
-    </div>
-    <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="vysledek">Vysledek:</label>
-        <output id="vysledek" class="block w-full py-2 px-3 text-gray-700 bg-gray-100 rounded"></output>
-    </div>
-    <div class="flex items-center justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="vypocet()">
-            Vypocti
-        </button>
-    </div>
-</form>
+</section>
 </body>
 </html>
